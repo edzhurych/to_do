@@ -24,9 +24,7 @@ class _AllTasksPageState extends State<AllTasksPage> {
       appBar: AppBar(
         title: const Text('ToDo'),
       ),
-      body:
-          // _tasks,
-          Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _title(),
@@ -47,18 +45,27 @@ class _AllTasksPageState extends State<AllTasksPage> {
 
   Widget _title() => Container(
         padding: const EdgeInsets.all(16),
-        child: const Text('All',
-            style: TextStyle(
-                color: Colors.black87,
-                fontSize: 40,
-                fontWeight: FontWeight.w700)),
+        child: const Text(
+          'All',
+          style: TextStyle(
+            color: Colors.black87,
+            fontSize: 40,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
       );
 
   Widget _tasksTitle() => Container(
-      padding: const EdgeInsets.only(left: 16, right: 16),
-      child: const Text('Tasks',
+        padding: const EdgeInsets.only(left: 16, right: 16),
+        child: const Text(
+          'Tasks',
           style: TextStyle(
-              color: Colors.blue, fontSize: 25, fontWeight: FontWeight.w500)));
+            color: Colors.blue,
+            fontSize: 25,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      );
 
   get _tasks => Expanded(
         child: ListView.builder(
