@@ -1,18 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:to_do/localization/delegate.dart';
 import 'package:to_do/network/model/to_do_model.dart';
 import 'package:to_do/network/network_api.dart';
 
 import 'list_item.dart';
 
-class HttpPage extends StatelessWidget {
+class NetworkPage extends StatelessWidget {
   final networkApi = NetworkApi();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Http'),
+        title: Text(R.of(context).network),
       ),
       body: FutureBuilder(
         future: networkApi.fetchToDos(),

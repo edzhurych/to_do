@@ -1,3 +1,5 @@
+import 'package:to_do/localization/delegate.dart';
+
 const _userIdKey = "userId";
 const _idKey = "id";
 const _titleKey = "title";
@@ -26,7 +28,7 @@ class ToDoModel {
     return ToDoModel(
       userId: 1,
       id: 1,
-      title: 'Default task',
+      title: R.instance.defaultTask,
       completed: false,
     );
   }

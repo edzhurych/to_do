@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:to_do/localization/delegate.dart';
 import 'package:to_do/network/model/to_do_model.dart';
 
 import 'list_item.dart';
@@ -25,7 +26,7 @@ class _AllTasksPageState extends State<AllTasksPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ToDo'),
+        title: Text(R.of(context).title),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,9 +49,9 @@ class _AllTasksPageState extends State<AllTasksPage> {
 
   Widget _title() => Container(
         padding: const EdgeInsets.all(16),
-        child: const Text(
-          'All',
-          style: TextStyle(
+        child: Text(
+          R.of(context).all,
+          style: const TextStyle(
             color: Colors.black87,
             fontSize: 40,
             fontWeight: FontWeight.w700,
@@ -60,9 +61,9 @@ class _AllTasksPageState extends State<AllTasksPage> {
 
   Widget _tasksTitle() => Container(
         padding: const EdgeInsets.only(left: 16, right: 16),
-        child: const Text(
-          'Tasks',
-          style: TextStyle(
+        child: Text(
+          R.of(context).tasks,
+          style: const TextStyle(
             color: Colors.blue,
             fontSize: 25,
             fontWeight: FontWeight.w500,
