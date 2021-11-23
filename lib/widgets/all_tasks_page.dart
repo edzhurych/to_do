@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:to_do/network/model/to_do_model.dart';
+
+import 'list_item.dart';
 
 class AllTasksPage extends StatefulWidget {
   const AllTasksPage({Key? key}) : super(key: key);
@@ -78,35 +81,5 @@ class _AllTasksPageState extends State<AllTasksPage> {
         ),
       );
 
-  _buildItem() => const ListItem();
-}
-
-class ListItem extends StatefulWidget {
-  const ListItem({Key? key}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => ListItemState();
-}
-
-class ListItemState extends State<ListItem> {
-  bool isChecked = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      onTap: () {},
-      // dense: true,
-      contentPadding: const EdgeInsets.all(2),
-      leading: Checkbox(
-        checkColor: Colors.white,
-        value: isChecked,
-        onChanged: (bool? value) {
-          setState(() {
-            isChecked = value!;
-          });
-        },
-      ),
-      title: const Text("ToDo task"),
-    );
-  }
+  _buildItem() => ListItem(task: ToDoModel.defaultValue());
 }
