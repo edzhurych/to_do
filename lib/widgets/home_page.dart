@@ -3,8 +3,9 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:to_do/localization/delegate.dart';
 import 'package:to_do/widgets/all_tasks_page.dart';
-import 'package:to_do/widgets/http_page.dart';
+import 'package:to_do/widgets/network_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,18 +18,18 @@ class _HomePageState extends State<HomePage> {
   int value = 0;
 
   @override
-  Widget build(BuildContext context) => _all();
+  Widget build(BuildContext context) => _all(context);
 
-  Widget _all() {
+  Widget _all(context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: const Text('ToDo'),
+        title: Text(R.of(context).title),
       ),
       body: Column(
         children: [
-          getBody(getAllTasksItem(), const AllTasksPage()),
-          getBody(getHttpTasksItem(), HttpPage()),
+          getBody(getAllTasksItem(context), const AllTasksPage()),
+          getBody(getHttpTasksItem(context), NetworkPage()),
         ],
       ),
     );
@@ -65,7 +66,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Row getAllTasksItem() {
+  Row getAllTasksItem(context) {
     return Row(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -73,14 +74,14 @@ class _HomePageState extends State<HomePage> {
       children: [
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Icon(
+          children: [
+            const Icon(
               Icons.all_inbox,
               size: 36,
             ),
             Text(
-              'All',
-              style: TextStyle(
+              R.of(context).all,
+              style: const TextStyle(
                 color: Colors.black54,
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
@@ -100,7 +101,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Row getHttpTasksItem() {
+  Row getHttpTasksItem(context) {
     return Row(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -108,14 +109,14 @@ class _HomePageState extends State<HomePage> {
       children: [
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Icon(
+          children: [
+            const Icon(
               Icons.network_check,
               size: 36,
             ),
             Text(
-              'Http',
-              style: TextStyle(
+              R.of(context).network,
+              style: const TextStyle(
                 color: Colors.black54,
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
