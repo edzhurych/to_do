@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:to_do/widgets/my_body.dart';
+import 'package:to_do/widgets/all_tasks_page.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    home: MyBody()
-  ));
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const AllTasksPage(),
+    );
+  }
 }
