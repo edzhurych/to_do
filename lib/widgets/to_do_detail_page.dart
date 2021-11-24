@@ -32,7 +32,7 @@ class ToDoDetailPage extends StatelessWidget {
                     ),
                     ListTile(
                       title: const Text("Body"),
-                      subtitle: Text(toDo.completed.toString()),
+                      subtitle: Text('${toDo.completed}'),
                     ),
                     ListTile(
                       title: const Text("User ID"),

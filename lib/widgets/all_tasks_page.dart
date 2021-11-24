@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:to_do/localization/delegate.dart';
 import 'package:to_do/network/model/to_do_model.dart';
+import 'package:to_do/widgets/my_title.dart';
 
 import 'list_item.dart';
 
@@ -31,8 +32,14 @@ class _AllTasksPageState extends State<AllTasksPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _title(),
-          _tasksTitle(),
+          const Padding(
+            padding: EdgeInsets.all(16),
+            child: MyTitle(),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16),
+            child: _TasksTitle(),
+          ),
           _tasks,
         ],
       ),
@@ -40,36 +47,10 @@ class _AllTasksPageState extends State<AllTasksPage> {
         elevation: 10,
         splashColor: Colors.amberAccent,
         child: const Icon(Icons.add),
-        onPressed: () {
-          _addItem();
-        },
+        onPressed: _addItem(),
       ),
     );
   }
-
-  Widget _title() => Container(
-        padding: const EdgeInsets.all(16),
-        child: Text(
-          R.of(context).all,
-          style: const TextStyle(
-            color: Colors.black87,
-            fontSize: 40,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      );
-
-  Widget _tasksTitle() => Container(
-        padding: const EdgeInsets.only(left: 16, right: 16),
-        child: Text(
-          R.of(context).tasks,
-          style: const TextStyle(
-            color: Colors.blue,
-            fontSize: 25,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      );
 
   get _tasks => Expanded(
         child: ListView.builder(
@@ -83,4 +64,16 @@ class _AllTasksPageState extends State<AllTasksPage> {
       );
 
   _buildItem() => ListItem(task: ToDoModel.defaultValue());
+}
+
+class _TasksTitle extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) => Text(
+        R.of(context).tasks,
+        style: const TextStyle(
+          color: Colors.blue,
+          fontSize: 25,
+          fontWeight: FontWeight.w500,
+        ),
+      );
 }

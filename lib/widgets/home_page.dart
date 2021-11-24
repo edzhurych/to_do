@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         Text(
-          value.toString(),
+          '$value',
           style: const TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.bold,
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         Text(
-          value.toString(),
+          '$value',
           style: const TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.bold,

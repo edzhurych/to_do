@@ -36,9 +36,7 @@ class ListItemState extends State<ListItem> {
         checkColor: Colors.white,
         value: isChecked,
         onChanged: (bool? value) {
-          setState(() {
-            isChecked = value!;
-          });
+          setState(() => isChecked = value!);
         },
       ),
       title: Text(widget.task.title),
